@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augmented Reality Visualization</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title -->
+    <h1>Augmented Reality Visualization</h1>
+
+    <!-- A-Frame AR Container -->
+    <a-scene embedded arjs>
+        <!-- Define the AR Marker (Hiro marker) -->
+        <a-marker preset="hiro">
+            <!-- 3D Model to display on the marker -->
+            <a-entity gltf-model="models/scene.gltf" scale="0.5 0.5 0.5" position="0 0 0">
+                <a-animation attribute="rotation" to="360 360 360" dur="2000" repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-marker>
+
+        <!-- Camera and AR.js settings -->
+        <a-camera></a-camera>
+    </a-scene>
+
+    <!-- AR.js and A-Frame Libraries -->
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
+
+</body>
+</html>
